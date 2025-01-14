@@ -24,5 +24,19 @@ function binarySearch(array, item) {
     return position
 }
 
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2)
+    if(item === array[middle]) {
+        return middle
+    }
+    if(item < array[middle]) {
+        return recursiveBinarySearch(array, item, start, middle - 1)
+    } else {
+        return recursiveBinarySearch(array, item, middle + 1, end)
+    }
+}
+
+console.log(recursiveBinarySearch(array, 8, 0, array.length));
+
 console.log(binarySearch(array, 11))
 console.log(count)
